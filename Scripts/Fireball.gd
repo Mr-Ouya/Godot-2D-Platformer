@@ -1,7 +1,8 @@
 extends Area2D
 
 const SPEED = 800
-
+#Trying to put gravity on fireball
+const GRAVITY = 100
 var velocity = Vector2();
 var direction = 1;
 
