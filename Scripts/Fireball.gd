@@ -5,6 +5,13 @@ const SPEED = 800
 const GRAVITY = 100
 var velocity = Vector2();
 var direction = 1;
+var gscale = 5;
+#Added motion to try to apply gravity to fireball
+var motion = Vector2();
+
+func set_gravity_scale(scale):
+	gscale = scale	
+
 
 func _ready():
 	pass
@@ -18,6 +25,8 @@ func set_fireball_direction(dir):
 
 func _physics_process(delta):
 	velocity.x = SPEED * delta	* direction
+	#Trying to apply gravity in the same way as player
+	motion.y += GRAVITY
 	
 	translate(velocity)
 	$AnimatedSprite.play("shoot")	
