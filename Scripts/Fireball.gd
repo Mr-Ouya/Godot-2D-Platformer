@@ -2,15 +2,15 @@ extends Area2D
 
 const SPEED = 800
 #Trying to put gravity on fireball
-const GRAVITY = 100
+const GRAVITY := 100
 var velocity = Vector2();
 var direction = 1;
-var gscale = 5;
+#var gscale = 5;
 #Added motion to try to apply gravity to fireball
 var motion = Vector2();
 
-func set_gravity_scale(scale):
-	gscale = scale	
+#func set_gravity_scale(scale):
+#	gscale = scale	
 
 
 func _ready():
@@ -26,7 +26,8 @@ func set_fireball_direction(dir):
 func _physics_process(delta):
 	velocity.x = SPEED * delta	* direction
 	#Trying to apply gravity in the same way as player
-	motion.y += GRAVITY
+	#motion.y += GRAVITY
+	#motion.y = lerp(motion.x, 0, 0.1)
 	
 	translate(velocity)
 	$AnimatedSprite.play("shoot")	
